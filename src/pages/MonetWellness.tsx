@@ -4,22 +4,18 @@ import { TrustBadge } from '@/components/TrustBadge';
 import { BookingForm } from '@/components/BookingForm';
 import { TestimonialCarousel } from '@/components/TestimonialCarousel';
 import { Phone, Mail, MapPin, Star, Heart, Shield, Users } from 'lucide-react';
-
 import heroBackground from '@/assets/hero-background.jpg';
 import carlitaAbout from '@/assets/carlita-about.jpg';
 import weightLossBg from '@/assets/weight-loss-bg.jpg';
 import aestheticTreatmentsBg from '@/assets/aesthetic-treatments-bg.jpg';
-
 export default function MonetWellness() {
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       {/* HERO SECTION */}
       <ParallaxSection backgroundImage={heroBackground} className="relative">
         <div className="container mx-auto px-6 text-center text-white">
           <ScrollAnimation className="max-w-4xl mx-auto">
             <h1 className="heading-primary text-white mb-4">
-              MONET AESTHETICS & WELLNESS
-            </h1>
+          </h1>
             <p className="tagline mb-8">Love Yourself First</p>
             <h2 className="text-2xl md:text-3xl font-light mb-8 text-white/90">
               Transform Your Confidence with Expert Care
@@ -91,9 +87,7 @@ export default function MonetWellness() {
                 </div>
                 
                 <div className="space-y-6 body-text">
-                  <p>
-                    Carlita Lockett didn't just choose aesthetics as a career; she chose it as a calling. As a Certified Nurse Practitioner with 18+ years in healthcare, Carlita understands that true beauty radiates from within - and sometimes we all need a little support to help that inner light shine brighter.
-                  </p>
+                  <p>Carlita Lockett didn't just choose aesthetics as a career; she chose it as a calling. As a Certified Nurse Practitioner with 18 years of excellence, Carlita understands that true beauty radiates from within - and sometimes we all need a little support to help that inner light shine brighter.</p>
                   
                   <div className="grid md:grid-cols-2 gap-8">
                     <div>
@@ -118,29 +112,16 @@ export default function MonetWellness() {
                       </ul>
                     </div>
                     
-                    <div>
-                      <h3 className="font-playfair text-xl font-bold mb-4 text-primary">Professional Excellence:</h3>
-                      <ul className="space-y-2">
-                        <li>• Certified Nurse Practitioner (CNP)</li>
-                        <li>• 18+ years clinical and aesthetic experience</li>
-                        <li>• Continuing education in latest safety protocols</li>
-                        <li>• Specialized training in injectable artistry</li>
-                        <li>• Expert in weight management solutions</li>
-                      </ul>
-                    </div>
+                    
                   </div>
                   
                   <div className="text-center pt-6 border-t border-border">
-                    <blockquote className="text-lg italic text-muted-foreground">
-                      "When you love yourself first, you give others permission to love you too. My job is to help you see the beauty that was always there."
-                    </blockquote>
+                    <blockquote className="text-lg italic text-muted-foreground">"When you love yourself first, you give others permission to love you too. </blockquote>
                   </div>
                 </div>
                 
                 <div className="text-center mt-8">
-                  <button className="btn-primary">
-                    Learn More About Carlita
-                  </button>
+                  
                 </div>
               </div>
             </ScrollAnimation>
@@ -698,6 +679,5 @@ export default function MonetWellness() {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 }
