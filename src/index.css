@@ -2,41 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Monet Aesthetics & Wellness Design System
+Love Yourself First - Professional • Accessible • Transformative
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Monet Brand Colors */
+    --background: 28 100% 92%; /* Peach #FFE5B4 */
+    --foreground: 0 0% 20%; /* Charcoal Gray #333333 */
+    --background-white: 0 0% 100%; /* Clean White */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%; /* Clean White cards */
+    --card-foreground: 0 0% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 0 0% 20%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 320 100% 70%; /* Rose #FF66CC */
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 320 100% 60%; /* Deeper Rose #E655B8 */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 60 100% 90%; /* Pastel Yellow #FFEE8C */
+    --secondary-foreground: 0 0% 20%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 240 67% 94%; /* Lavender #E6E6FA */
+    --accent-foreground: 0 0% 20%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 90%;
+    --input: 0 0% 95%;
+    --ring: 320 100% 70%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
+
+    /* Wellness Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)), hsl(var(--secondary)));
+    --gradient-wellness: linear-gradient(180deg, hsl(var(--accent)), hsl(var(--background-white)));
+    --gradient-cta: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-hover)));
+    
+    /* Parallax Variables */
+    --parallax-speed-slow: 0.5;
+    --parallax-speed-medium: 0.8;
+    --parallax-speed-fast: 1;
+    
+    /* Shadows */
+    --shadow-wellness: 0 10px 30px -10px hsl(var(--primary) / 0.2);
+    --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.1);
+    --shadow-floating: 0 20px 40px -10px hsl(var(--primary) / 0.3);
+    
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-parallax: transform 0.1s linear;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +123,162 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-lato;
+    overflow-x: hidden;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  /* Parallax Base Styles */
+  .parallax-container {
+    @apply relative overflow-hidden;
+    height: 100vh;
+    min-height: 600px;
+  }
+  
+  .parallax-bg {
+    @apply absolute inset-0 will-change-transform;
+    transform-style: preserve-3d;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  
+  .parallax-content {
+    @apply relative z-10 h-full flex items-center justify-center;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+  }
+  
+  /* Typography Classes */
+  .heading-primary {
+    @apply font-playfair text-4xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight;
+  }
+  
+  .heading-secondary {
+    @apply font-playfair text-3xl md:text-5xl font-bold text-foreground leading-tight;
+  }
+  
+  .tagline {
+    @apply font-dancing text-2xl md:text-4xl text-primary font-bold;
+  }
+  
+  .body-large {
+    @apply font-lato text-lg md:text-xl leading-relaxed text-foreground;
+  }
+  
+  .body-text {
+    @apply font-lato text-base md:text-lg leading-relaxed text-foreground;
+  }
+  
+  /* Button Variants */
+  .btn-primary {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 rounded-full font-lato font-semibold text-lg;
+    background: var(--gradient-cta);
+    box-shadow: var(--shadow-wellness);
+    transition: var(--transition-smooth);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-floating);
+  }
+  
+  .btn-secondary {
+    @apply bg-background-white/90 backdrop-blur-sm text-foreground px-8 py-4 rounded-full font-lato font-semibold text-lg border-2 border-primary;
+    transition: var(--transition-smooth);
+  }
+  
+  .btn-secondary:hover {
+    @apply bg-primary text-primary-foreground;
+    transform: translateY(-2px);
+  }
+  
+  /* Trust Badge */
+  .trust-badge {
+    @apply bg-background-white/90 backdrop-blur-sm px-6 py-3 rounded-full;
+    box-shadow: var(--shadow-card);
+    border: 1px solid hsl(var(--primary) / 0.2);
+  }
+  
+  /* Wellness Card */
+  .wellness-card {
+    @apply bg-card p-8 rounded-3xl;
+    box-shadow: var(--shadow-card);
+    backdrop-filter: blur(10px);
+    background: hsl(var(--card) / 0.95);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+  
+  /* Floating Animation */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  /* Fade In Animation */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Testimonial Card */
+  .testimonial-card {
+    @apply wellness-card text-center max-w-md mx-4;
+    min-height: 300px;
+  }
+  
+  /* Form Styles */
+  .wellness-input {
+    @apply w-full px-4 py-3 rounded-xl border border-border bg-input text-foreground;
+    transition: var(--transition-smooth);
+  }
+  
+  .wellness-input:focus {
+    @apply outline-none ring-2 ring-primary border-primary;
+  }
+  
+  .wellness-select {
+    @apply wellness-input appearance-none cursor-pointer;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'><path fill='%23666' d='M2 0L0 2h4zm0 5L0 3h4z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+  }
+  
+  .wellness-textarea {
+    @apply wellness-input min-h-32 resize-vertical;
+  }
+  
+  /* Pricing Table */
+  .pricing-item {
+    @apply flex justify-between items-center py-3 border-b border-border/30 last:border-b-0;
+  }
+  
+  /* Mobile Parallax Disable */
+  @media (max-width: 768px) {
+    .parallax-bg {
+      background-attachment: scroll;
+      transform: none !important;
+    }
+    
+    .parallax-container {
+      height: auto;
+      min-height: 500px;
+    }
   }
 }
