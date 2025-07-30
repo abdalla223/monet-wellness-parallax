@@ -180,8 +180,8 @@ export default function MonetWellness() {
                         <p className="text-sm text-muted-foreground">Your dosing plan is carefully crafted based on your individual needs.</p>
                       </div>
                       <div className="border-l-4 border-accent pl-4">
-                        <h4 className="font-semibold text-lg mb-2">Step 3: Professional Care</h4>
-                        <p className="text-sm text-muted-foreground">Weekly injections administered with precision and care.</p>
+                        <h4 className="font-semibold text-lg mb-2">Step 3: Self-Administration Training</h4>
+                        <p className="text-sm text-muted-foreground">Learn proper injection techniques with comprehensive guidance and ongoing support.</p>
                       </div>
                       <div className="border-l-4 border-primary pl-4">
                         <h4 className="font-semibold text-lg mb-2">Step 4: Ongoing Support</h4>
