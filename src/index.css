@@ -261,7 +261,8 @@ All colors MUST be HSL.
   }
   
   .wellness-textarea {
-    @apply wellness-input min-h-32 resize-y;
+    @apply wellness-input resize-y;
+    min-height: 8rem;
   }
   
   /* Pricing Table */
